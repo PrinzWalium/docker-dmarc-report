@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: gutmensch/dmarc-report
+          images: prinzwalium/dmarc-report
           flavor: latest=true
           tags: |
             type=ref,event=branch
