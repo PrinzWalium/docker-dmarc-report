@@ -35,7 +35,6 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: Login to DockerHub
-        if: github.ref_type == 'tag'
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -47,8 +46,5 @@ jobs:
           context: .
           platforms: linux/amd64, linux/arm64
           file: Dockerfile
-          push: ${{ github.ref_type == 'tag' }}
-          tags: |
-            ${{ steps.meta.outputs.tags }}
-            gutmensch/dmarc-report:latest
-          labels: ${{ steps.meta.outputs.labels }}
+          push: true
+          tags: prinzwalium/dmarc-report:latest
