@@ -78,6 +78,4 @@ RUN set -e -x \
 
 HEALTHCHECK --interval=1m --timeout=3s CMD curl --silent --fail http://127.0.0.1:80/fpm-ping
 
-EXPOSE 80
-
 CMD ["/bin/bash", "/entrypoint.sh"]
